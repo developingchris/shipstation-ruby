@@ -1,4 +1,4 @@
-module ShipStation
+module Shipstation
   class OrderAdvancedOptions
     attr_accessor :customField1, :customField2, :saturdayDelivery
 

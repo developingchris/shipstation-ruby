@@ -1,4 +1,4 @@
-module ShipStation
+module Shipstation
   class Dimensions
     attr_accessor :units, :length, :width, :height
   end

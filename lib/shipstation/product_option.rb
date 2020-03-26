@@ -1,4 +1,4 @@
-module ShipStation
+module Shipstation
   class ProductOption
     attr_accessor :name, :value
 

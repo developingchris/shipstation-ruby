@@ -1,4 +1,4 @@
-module ShipStation
+module Shipstation
   class Order
     attr_accessor :orderId,
                   :orderNumber,
