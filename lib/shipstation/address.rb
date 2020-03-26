@@ -1,4 +1,4 @@
-module Shipstation
+module ShipStation
 class Address
     attr_accessor :name,
                   :company,

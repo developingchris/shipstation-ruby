@@ -1,4 +1,4 @@
-module Shipstation
+module ShipStation
   class InternationalOptions
     attr_accessor :contents,
       :customsItems,

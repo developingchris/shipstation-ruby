@@ -2,7 +2,7 @@ require_relative 'lib/shipstation/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "shipstation"
-  spec.version       = Shipstation::VERSION
+  spec.version       = ShipStation::VERSION
   spec.authors       = ["Chris Chandler"]
   spec.email         = ["chris@developingchris.com"]
 

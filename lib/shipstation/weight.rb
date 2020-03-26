@@ -1,4 +1,4 @@
-module Shipstation
+module ShipStation
   class Weight
     attr_accessor :value, :units
 

@@ -1,4 +1,4 @@
-module Shipstation
+module ShipStation
   class Product
     attr_accessor :lineItemKey,
       :sku,

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Shipstation do
+RSpec.describe ShipStation do
   it "has a version number" do
-    expect(Shipstation::VERSION).not_to be nil
+    expect(ShipStation::VERSION).not_to be nil
   end
 end
