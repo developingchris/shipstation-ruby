@@ -9,7 +9,7 @@ require_relative 'shipstation/product.rb'
 require_relative 'shipstation/product_option.rb'
 require_relative 'shipstation/weight.rb'
 
-module Shipstation
+module ShipStation
   class Error < StandardError; end
   # Your code goes here...
   class Client
