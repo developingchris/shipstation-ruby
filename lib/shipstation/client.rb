@@ -116,7 +116,7 @@ module ShipStation
 
     def create_orders(params)
       options = {}
-      options[:body] =  params
+      options[:body] =  params.to_json
       authit(options)
       options[:headers] ||= {}
       options[:headers]["Content-Type"] = "application/json"
