@@ -114,6 +114,16 @@ module ShipStation
       self.class.get("/shipments", options)
     end
 
+    def create_orders(params)
+      options = {}
+      options[:body] =  params
+      authit(options)
+      options[:headers] ||= {}
+      options[:headers]["Content-Type"] = "application/json"
+
+      self.class.post("/orders/createorders", options)
+    end
+
     def list_stores(marketplace = 0)
       options = {}
       authit(options)
