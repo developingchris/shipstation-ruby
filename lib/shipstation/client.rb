@@ -95,9 +95,9 @@ module ShipStation
       self.class.post("/orders/createlabelfororder", options)
     end
 
-    def create_order(id, params)
+    def create_order(params)
       options = {}
-      options[:body] =  params
+      options[:body] = params.to_json
       authit(options)
       options[:headers] ||= {}
       options[:headers]["Content-Type"] = "application/json"
