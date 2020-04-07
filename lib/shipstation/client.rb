@@ -41,13 +41,7 @@ module ShipStation
       authit(options)
       options[:query] = params
 
-      order_result =  self.class.get("/orders",options)
-
-      # if order_result["total"] > 1
-      #   throw Exception.new("Too many results for order query")
-      # end
-
-      order_result.orders
+      self.class.get("/orders",options)
     end
 
     def order_delete(id)
@@ -56,9 +50,7 @@ module ShipStation
 
       authit(options)
 
-      order_result =  self.class.delete("/orders/#{id}" ,options)
-
-      order_result.message
+      self.class.delete("/orders/#{id}" ,options)
     end
 
     def carriers
@@ -122,6 +114,15 @@ module ShipStation
       options[:headers]["Content-Type"] = "application/json"
 
       self.class.post("/orders/createorders", options)
+    end
+      
+    def shipments(params = {})
+      options = {}
+
+      authit(options)
+      options[:query] = params
+
+      self.class.get("/shipments", options)
     end
 
     def list_stores(marketplace = 0)
