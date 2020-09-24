@@ -26,9 +26,9 @@ module ShipStation
 
       order_result =  self.class.get("/orders",options)
 
-      if order_result && order_result.total
-        if order_result.total > 1
-          throw Exception.new("Too many results for order query")
+      if order_result && order_result&.total
+        if order_result&.total > 1
+          throw TooManyResultsError.new("Too many results for order query")
         end
 
         order_result.orders.first unless order_result.orders.nil?
@@ -115,7 +115,7 @@ module ShipStation
 
       self.class.post("/orders/createorders", options)
     end
-      
+
     def shipments(params = {})
       options = {}
 
