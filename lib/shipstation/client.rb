@@ -1,5 +1,6 @@
 require 'shipstation/client/mashed_parser'
 require 'shipstation/client/response'
+require 'shipstation/client/too_many_results_error'
 
 module ShipStation
   class Client
