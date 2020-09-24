@@ -27,4 +27,26 @@ RSpec.describe ShipStation::Client do
       client.shipments(options)
     end
   end
+
+  describe '#order' do
+    context 'with too many orders' do
+      let(:order_id) {4}
+      subject { super().order('4') }
+
+      it 'does not bomb on bad request' do
+        expect(described_class).to receive(:get)
+          .with(anything, hash_including({ basic_auth: { password: AUTH_SECRET, username: AUTH_KEY }, verify: false })).and_return(OpenStruct.new(total: nil, orders: nil))
+        subject
+      end
+
+      it 'does throw error when called improperly' do
+        expect(described_class).to receive(:get)
+          .with(anything, hash_including({ basic_auth: { password: AUTH_SECRET, username: AUTH_KEY }, verify: false })).and_return(OpenStruct.new(total: 2, orders: nil))
+        expect {
+          subject
+        }.to raise_error ShipStation::TooManyResultsError
+      end
+
+    end
+  end
 end

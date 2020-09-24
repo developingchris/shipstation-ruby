@@ -27,9 +27,11 @@ module ShipStation
 
       order_result =  self.class.get("/orders",options)
 
-      if order_result && order_result&.total
-        if order_result&.total > 1
-          throw TooManyResultsError.new("Too many results for order query")
+      if order_result
+        if order_result.respond_to? :total
+          if order_result&.total.to_i > 1
+            raise TooManyResultsError.new("Too many results for order query")
+          end
         end
 
         order_result.orders.first unless order_result.orders.nil?
