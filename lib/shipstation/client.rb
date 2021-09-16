@@ -128,6 +128,15 @@ module ShipStation
       self.class.get("/shipments", options)
     end
 
+    def fulfillments(params = {})
+      options = {}
+
+      authit(options)
+      options[:query] = params
+
+      self.class.get("/fulfillments", options)
+    end
+
     def list_stores(marketplace = 0)
       options = {}
       authit(options)

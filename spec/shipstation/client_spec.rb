@@ -28,6 +28,27 @@ RSpec.describe ShipStation::Client do
     end
   end
 
+  describe '#fulfillments' do
+    subject{ super().fulfillments }
+
+    it 'hits the correct API endpoint' do
+      expect(described_class).to receive(:get).with('/fulfillments', anything)
+      subject
+    end
+
+    it 'attaches the auth' do
+      expect(described_class).to receive(:get)
+        .with(anything, hash_including({ basic_auth: { password: AUTH_SECRET, username: AUTH_KEY }, verify: false }))
+      subject
+    end
+
+    it 'sends any options passed' do
+      options = { a: 1, b: 2 }
+      expect(described_class).to receive(:get).with(anything, hash_including({ query: options }))
+      client.fulfillments(options)
+    end
+  end
+
   describe '#order' do
     context 'with too many orders' do
       let(:order_id) {4}
